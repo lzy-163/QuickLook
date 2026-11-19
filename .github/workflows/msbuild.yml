@@ -1,5 +1,3 @@
-# run a build for the latest version and upload the artifacts to a "latest" pre-release
-
 name: MSBuild
 
 on:
@@ -30,7 +28,6 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
-        ref: master
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
@@ -76,5 +73,3 @@ jobs:
         rm: true
         token: ${{ secrets.GITHUB_TOKEN }}
         files: QuickLook-*.*
-
-
