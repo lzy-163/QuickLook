@@ -30,7 +30,6 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
-        ref: master
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
@@ -67,7 +66,8 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: quicklook-build-files
-    
+        path: Build/
+
     - name: Update latest release
       # see https://github.com/pyTooling/Actions/tree/main/releaser
       uses: pyTooling/Actions/releaser@main
@@ -75,6 +75,4 @@ jobs:
         tag: latest
         rm: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        files: QuickLook-*.*
-
-
+        files: Build/QuickLook-*.*
