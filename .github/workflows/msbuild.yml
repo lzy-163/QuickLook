@@ -58,7 +58,8 @@ jobs:
     # one of the steps uses container action which is Linux only
     runs-on: ubuntu-latest
     
-    permissions: write-all
+    permissions:
+      contents: write
     
     # only run this job on push events, not pull_request
     if: github.event_name == 'push'
@@ -76,5 +77,3 @@ jobs:
         rm: true
         token: ${{ secrets.GITHUB_TOKEN }}
         files: QuickLook-*.*
-
-
